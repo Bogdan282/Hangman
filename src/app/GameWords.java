@@ -1,7 +1,7 @@
 package app;
 
 public class GameWords {
-    public static String[] wordsPull = {"Писюн", "Стол", "Квадрат", "Дмитрий", "Клавиатура"};
+    public static String[] wordsPull = {"Писюн", "Стол", "Квадрат", "Дмитрий", "Клавиатура", "Солнце", "Мышь", "Дракон"};
 
     public static void checkLetterIndex(String letter) {
         boolean match = false;
@@ -19,7 +19,12 @@ public class GameWords {
         }
         if(!match) {
             Main.countTry--;
-            System.out.println("Вы ошиблись. Осталось попыток: " + Main.countTry);
+            if(Main.countTry == 0) {
+                Main.loose = true;
+                System.out.println("Вы проиграли.");
+            } else {
+                System.out.println("Вы ошиблись. Осталось попыток: " + Main.countTry);
+            }
         } else if(Main.countTry == 0) {
             Main.loose = true;
             System.out.println("Вы проиграли.");
